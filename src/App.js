@@ -41,7 +41,6 @@ function App() {
     const article = {
       url,
       group,
-      groupOrder: newGroupOrder,
       title,
       content: inputMd,
       order
@@ -55,7 +54,7 @@ function App() {
     setAddNewGroupLoading(true);
     const newGroupData = {
       title: newGroup,
-      order: 0
+      order: newGroupOrder
     }
     await saveNewGroup(newGroupData);
 
@@ -69,11 +68,6 @@ function App() {
   useEffect(() => {
     getGroups().then(setGroups);
   }, []);
-
-  useEffect(() => {
-    console.log(groups)
-    console.log(group)
-  }, [groups]);
 
 
   return (
